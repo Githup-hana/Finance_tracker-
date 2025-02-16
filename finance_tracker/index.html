@@ -4,9 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Finance_Tracker💰</title>
+   
+    <link rel="stylesheet" href="/src/style.css">
   </head>
   <body>
+    <h1>💰 Finance Tracker</h1>
+    <form id="transaction-form" class="mt-4">
+      <input id="description" type="text" placeholder="Beschreibung" required >
+      <input id="amount" type="number" placeholder="Betrag (€)" required >
+      <select id="type" >
+          <option value="income">Einnahme</option>
+          <option value="expense">Ausgabe</option>
+      </select>
+      <button type="submit" >Hinzufügen</button>
+  </form>
   
     <script type="module" src="/src/main.ts"></script>
   </body>
