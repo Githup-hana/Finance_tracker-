@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="/src/style.css">
   </head>
   <body>
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
     <h1>💰 Finance Tracker</h1>
-    <form id="transaction-form" class="mt-4">
+    <form id="transaction-form" class="mt-4 flex flex-col w-full ">
       <input id="description" type="text" placeholder="Beschreibung" required >
       <input id="amount" type="number" placeholder="Betrag (€)" required >
-      <select id="type" >
+      <select id="type-of-transactions"  class="w-full p-2 border rounded mt-2">
           <option value="income">Einnahme</option>
           <option value="expense">Ausgabe</option>
       </select>
-      <button type="submit" >Hinzufügen</button>
+      <button type="submit" class="w-full mt-3 bg-blue-500 text-white p-2 rounded" >Hinzufügen</button>
   </form>
+</div>
   
     <script type="module" src="/src/main.ts"></script>
   </body>
