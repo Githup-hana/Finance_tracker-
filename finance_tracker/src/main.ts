@@ -11,6 +11,7 @@ const amountInput = document.getElementById("amount") as HTMLInputElement;
 const descInput = document.getElementById("description") as HTMLInputElement;
 const transactionList = document.getElementById("transaction-list");
 const balanceDisplay=document.getElementById("balance")
+const transactions: Transaction[] = JSON.parse(localStorage.getItem("transactions") || "[]");
 
 
   function getTransactions(): Transaction[] {
@@ -32,7 +33,7 @@ const balanceDisplay=document.getElementById("balance")
   }
 
   function displayData(): void {
-    const transactions: Transaction[] = JSON.parse(localStorage.getItem("transactions") || "[]");
+   
   
       if (transactionList) {
         transactionList.innerHTML = transactions.map(transaction => {
@@ -46,15 +47,18 @@ const balanceDisplay=document.getElementById("balance")
             </li>`;
         }).join('');
       }
-      const balance = transactions.reduce((sum, t) => t.type === "income" ? sum + t.amount : sum - t.amount, 0);
-      if (balanceDisplay) {
-        balanceDisplay.textContent = `${balance.toFixed(2)} €`;
-      }
+   
     
   }
+  function displayBalance(){   const balance = transactions.reduce((sum, t) => t.type === "income" ? sum + t.amount : sum - t.amount, 0);
+    if (balanceDisplay) {
+      balanceDisplay.textContent = `${balance.toFixed(2)} €`;
+    }}
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     savingTransaction();
     displayData()
+    displayBalance()
 });
+displayBalance()
