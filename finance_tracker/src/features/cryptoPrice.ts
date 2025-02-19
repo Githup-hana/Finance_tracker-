@@ -1,14 +1,20 @@
-import { cryptoPriceContainer, displayCrypto } from "./cryptoPriceDisplay";
-
-console.log("Script geladen");
-const cryptoInput = document.querySelector("#crypto-input") as HTMLInputElement;
-const currencySelect = document.querySelector(
-  "#currency-select"
-) as HTMLSelectElement;
+import { displayCrypto } from "./cryptoPriceDisplay";
 
 export async function getCryptoPrice() {
+  const cryptoPriceContainer = document.querySelector(
+    "#crypto-price"
+  ) as HTMLParagraphElement;
+ 
+  const cryptoInput = document.querySelector(
+    "#crypto-input"
+  ) as HTMLInputElement;
+  console.log(':',cryptoInput);
+  const currencySelect = document.querySelector(
+    "#currency-select"
+  ) as HTMLSelectElement;
+  console.log(':',currencySelect);
   const crypto = cryptoInput.value.toLowerCase().trim();
-  console.log(":", crypto);
+
   const currency = currencySelect.value;
 
   if (!crypto || !currency) {
@@ -17,18 +23,19 @@ export async function getCryptoPrice() {
   }
 
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${crypto}`;
+  
   if (cryptoPriceContainer) cryptoPriceContainer.innerHTML = "";
 
   try {
     const response = await fetch(url);
-    console.log(response);
+    
     if (!response.ok) {
       throw new Error("Fehler beim Abrufen der API-Daten");
     }
     const data = await response.json();
     console.log(":", data);
     if (data) {
-      displayCrypto(data);
+      displayCrypto(data[0]);
     } else {
       cryptoPriceContainer.innerHTML = `<p class="text-red-500">Kryptowährung nicht gefunden!</p>`;
     }

@@ -7,7 +7,7 @@ interface Transaction {
 
 function displayBalance() {
   const balanceDisplay = document.getElementById("balance");
-  console.log(":", balanceDisplay);
+ 
   const transactions = getTransactions();
   const balance = transactions.reduce(
     (sum: number, t: Transaction) =>

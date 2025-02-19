@@ -20,5 +20,5 @@ function savingTransaction() {
   localStorage.setItem("transactions", newTransaction);
   form.reset();
 }
-console.log(":", savingTransaction);
+
 export { savingTransaction };

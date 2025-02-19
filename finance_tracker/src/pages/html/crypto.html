@@ -1,21 +1,22 @@
-<h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Krypto-Preise</h1>
+<h1 class="text-4xl font-bold mb-8 text-center text-gray-900">Krypto-Preise</h1>
 
-<div id="crypto-price">
-  <p class="text-lg text-gray-700 text-center mb-4">
+<div id="crypto-price" class="mb-6">
+  <p class="text-lg text-gray-700 text-center">
     Geben Sie den Namen einer Kryptowährung ein und wählen Sie die Währung, um
     den Preis zu sehen.
   </p>
 </div>
+
 <input
   type="text"
   id="crypto-input"
-  class="w-full max-w-xs p-3 border-2 border-gray-300 rounded-md shadow-md mb-4 mx-auto block"
+  class="w-full max-w-xs p-4 border-2 border-gray-300 rounded-md shadow-md mb-6 mx-auto block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
   placeholder="Z.B. Bitcoin, Ethereum, Litecoin"
 />
 
 <select
   id="currency-select"
-  class="w-full max-w-xs p-3 border-2 border-gray-300 rounded-md shadow-md mb-4 mx-auto block"
+  class="w-full max-w-xs p-4 border-2 border-gray-300 rounded-md shadow-md mb-6 mx-auto block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 >
   <option value="usd">USD</option>
   <option value="eur">EUR</option>
@@ -23,9 +24,12 @@
 
 <button
   id="crypto-but"
-  class="w-full max-w-xs p-3 border-2 border-gray-300 rounded-md shadow-m mb-4 mx-auto block bg-blue-400"
+  class="w-full max-w-xs p-4 border-2 border-blue-500 rounded-md shadow-md mb-6 mx-auto block bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 >
-  search
+  Suchen
 </button>
 
-<div id="crypto-price"></div>
+<div
+  id="crypto-price"
+  class="w-full max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-lg space-y-6"
+></div>
