@@ -1,13 +1,14 @@
 import { cryptoPriceContainer, displayCrypto } from "./cryptoPriceDisplay";
 
-
 console.log("Script geladen");
 const cryptoInput = document.querySelector("#crypto-input") as HTMLInputElement;
-const currencySelect = document.querySelector("#currency-select") as HTMLSelectElement;
-const cryptoButton=document.querySelector("#crypto-but")as HTMLButtonElement
+const currencySelect = document.querySelector(
+  "#currency-select"
+) as HTMLSelectElement;
 
-async function getCryptoPrice() {
+export async function getCryptoPrice() {
   const crypto = cryptoInput.value.toLowerCase().trim();
+  console.log(":", crypto);
   const currency = currencySelect.value;
 
   if (!crypto || !currency) {
@@ -25,9 +26,9 @@ async function getCryptoPrice() {
       throw new Error("Fehler beim Abrufen der API-Daten");
     }
     const data = await response.json();
-    console.log(':',data);
-    if (data ) {
-        displayCrypto(data); 
+    console.log(":", data);
+    if (data) {
+      displayCrypto(data);
     } else {
       cryptoPriceContainer.innerHTML = `<p class="text-red-500">Kryptowährung nicht gefunden!</p>`;
     }
@@ -35,7 +36,3 @@ async function getCryptoPrice() {
     cryptoPriceContainer.innerHTML = `<p class="text-red-500">Fehler beim Abrufen des Krypto-Preises!</p>`;
   }
 }
-
-cryptoButton.addEventListener("click", getCryptoPrice);
-
-

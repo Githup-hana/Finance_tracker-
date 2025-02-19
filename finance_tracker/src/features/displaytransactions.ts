@@ -1,28 +1,34 @@
-import { transactions } from "../main";
-import { transactionList } from "./data";
-
-
+import { getTransactions } from "../main";
 
 function displayData(): void {
-    if (transactionList) {
-      transactionList.innerHTML = transactions
-        .map((transaction) => {
-          return `
+  const transactionList = document.getElementById("transaction-list");
+  if (transactionList) {
+    const transactions = getTransactions();
+
+    transactionList.innerHTML = transactions
+      .map((transaction) => {
+        return `
               <li class="p-4 border rounded-lg shadow-md ${
                 transaction.type === "income"
                   ? "bg-green-100 border-green-500"
                   : "bg-red-100 border-red-500"
               }">
-                <h3 class="font-semibold text-lg">${transaction.description}</h3>
-                <p class="text-sm"><strong>Type:</strong> ${transaction.type}</p>
+                <h3 class="font-semibold text-lg">${
+                  transaction.description
+                }</h3>
+                <p class="text-sm"><strong>Type:</strong> ${
+                  transaction.type
+                }</p>
                 <p class="text-sm"><strong>Amount:</strong> ${
                   transaction.amount
                 }€</p>
-                <p class="text-sm"><strong>Amount:</strong> ${transaction.id}</p>
+                <p class="text-sm"><strong>Amount:</strong> ${
+                  transaction.id
+                }</p>
               </li>`;
-        })
-        .join("");
-    }
+      })
+      .join("");
   }
+}
 
-  export {displayData}
+export { displayData };

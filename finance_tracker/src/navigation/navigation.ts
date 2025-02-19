@@ -5,7 +5,7 @@ const navLinksElements = document.querySelectorAll("a");
 function navigation(appEl: HTMLDivElement) {
   navLinksElements.forEach((link) => {
     link.addEventListener("click", (event) => {
-      event.preventDefault(); 
+      event.preventDefault();
       const targetPath = (event.target as HTMLAnchorElement).getAttribute(
         "href"
       );

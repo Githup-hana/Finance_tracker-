@@ -1,7 +1,4 @@
-
-
-import { transactions } from "../main";
-import { balanceDisplay } from "./data";
+import { getTransactions } from "../main";
 
 interface Transaction {
   type: "income" | "expense";
@@ -9,8 +6,12 @@ interface Transaction {
 }
 
 function displayBalance() {
+  const balanceDisplay = document.getElementById("balance");
+  console.log(":", balanceDisplay);
+  const transactions = getTransactions();
   const balance = transactions.reduce(
-    (sum: number, t: Transaction) => (t.type === "income" ? sum + t.amount : sum - t.amount),
+    (sum: number, t: Transaction) =>
+      t.type === "income" ? sum + t.amount : sum - t.amount,
     0
   );
   if (balanceDisplay) {
