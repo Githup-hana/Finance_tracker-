@@ -1,4 +1,4 @@
-import {  form, } from "./features/data";
+// import {  form, } from "./features/data";
 import { displayBalance } from "./features/dispalybalance";
 
 import { savingTransaction } from "./features/savingTransaction";
@@ -29,7 +29,8 @@ function getTransactions(): Transaction[] {
 
 
 
-
+const form = document.getElementById("transaction-form") as HTMLFormElement;
+console.log(':',form);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();

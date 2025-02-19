@@ -24,20 +24,5 @@ function displayData(): void {
         .join("");
     }
   }
-  async function transactionPage() {
-   
-    const response = await fetch("/src/pages/html/transaction.html");
-    const html = await response.text();
-    
-    
-    const appElement = document.getElementById('app');
-    if (appElement) {
-        appElement.innerHTML = html; 
-    } else {
-        console.error("App element not found");
-    }
-    
-    
-    displayData();
-}
-  export {transactionPage}
+
+  export {displayData}
