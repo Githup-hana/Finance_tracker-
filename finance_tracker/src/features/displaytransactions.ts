@@ -1,0 +1,43 @@
+import { transactions } from "../main";
+import { transactionList } from "./data";
+
+
+
+function displayData(): void {
+    if (transactionList) {
+      transactionList.innerHTML = transactions
+        .map((transaction) => {
+          return `
+              <li class="p-4 border rounded-lg shadow-md ${
+                transaction.type === "income"
+                  ? "bg-green-100 border-green-500"
+                  : "bg-red-100 border-red-500"
+              }">
+                <h3 class="font-semibold text-lg">${transaction.description}</h3>
+                <p class="text-sm"><strong>Type:</strong> ${transaction.type}</p>
+                <p class="text-sm"><strong>Amount:</strong> ${
+                  transaction.amount
+                }€</p>
+                <p class="text-sm"><strong>Amount:</strong> ${transaction.id}</p>
+              </li>`;
+        })
+        .join("");
+    }
+  }
+  async function transactionPage() {
+   
+    const response = await fetch("/src/pages/html/transaction.html");
+    const html = await response.text();
+    
+    
+    const appElement = document.getElementById('app');
+    if (appElement) {
+        appElement.innerHTML = html; 
+    } else {
+        console.error("App element not found");
+    }
+    
+    
+    displayData();
+}
+  export {transactionPage}
