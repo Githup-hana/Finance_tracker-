@@ -20,8 +20,10 @@ async function updateAppContent(appEl: HTMLDivElement) {
     appEl.innerHTML = content;
 
     if (currentPath === "/") {
-      const form = document.getElementById("transaction-form") as HTMLFormElement;
-      console.log("🚀 ~ homePage ~ form:", form);
+      const form = document.getElementById(
+        "transaction-form"
+      ) as HTMLFormElement;
+
       displayBalance();
       form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -30,10 +32,14 @@ async function updateAppContent(appEl: HTMLDivElement) {
       });
     }
     if (currentPath === "/Transactions") {
+     
       displayData();
+      
     }
     if (currentPath === "/cryptoPrice") {
-      const cryptoButton = document.querySelector("#crypto-but") as HTMLButtonElement;
+      const cryptoButton = document.querySelector(
+        "#crypto-but"
+      ) as HTMLButtonElement;
       cryptoButton.addEventListener("click", getCryptoPrice);
     }
   } catch (error) {
@@ -43,29 +49,26 @@ async function updateAppContent(appEl: HTMLDivElement) {
 }
 
 function initRouter(appEl: HTMLDivElement) {
- 
   document.body.addEventListener("click", async (event) => {
     const target = event.target as HTMLAnchorElement;
 
-   
-    if (target.tagName === "A" && target.getAttribute("href")?.startsWith("/")) {
-      event.preventDefault(); 
+    if (
+      target.tagName === "A" &&
+      target.getAttribute("href")?.startsWith("/")
+    ) {
+      event.preventDefault();
 
       window.history.pushState({}, "", target.href);
 
-     
       await updateAppContent(appEl);
     }
   });
 
- 
   window.addEventListener("popstate", () => updateAppContent(appEl));
 
- 
   window.addEventListener("load", () => updateAppContent(appEl));
 }
 
-console.log("hallo");
-console.log(":", displayBalance);
+
 
 export { updateAppContent, initRouter };

@@ -1,5 +1,6 @@
 import { getTransactions, Transaction } from "../main";
 
+
 function savingTransaction() {
   const form = document.getElementById("transaction-form") as HTMLFormElement;
   const typeInput = document.getElementById(
@@ -19,6 +20,7 @@ function savingTransaction() {
   const newTransaction = JSON.stringify(existingTransactions);
   localStorage.setItem("transactions", newTransaction);
   form.reset();
+ 
 }
 
 export { savingTransaction };
