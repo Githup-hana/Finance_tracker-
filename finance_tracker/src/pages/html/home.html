@@ -2,13 +2,14 @@
   <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-14">
     <h1>💰 Finance Tracker</h1>
     <form id="transaction-form" class="mt-4 flex flex-col w-full">
-      <input
-        id="description"
-        type="text"
-        placeholder="Beschreibung"
-        required
-        class="w-full p-2 border rounded mt-2"
-      />
+      <select id="description" required class="w-full p-2 border rounded mt-2">
+       
+        <option value="Gehalt">Gehalt</option>
+        <option value="Miete">Miete</option>
+        <option value="Lebensmittel">Lebensmittel</option>
+        <option value="Freizeit">Freizeit</option>
+        <option value="Sonstiges">Sonstiges</option>
+      </select>
       <input
         id="amount"
         type="number"
