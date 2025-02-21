@@ -1,4 +1,5 @@
-import { getTransactions } from "../main";
+import { getTransactions } from "./getTransactions";
+
 
 function displayData(): void {
   const transactionList = document.getElementById("transaction-list");

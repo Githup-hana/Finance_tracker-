@@ -1,4 +1,5 @@
-import { getTransactions } from "../main";
+import { getTransactions } from "./getTransactions";
+
 
 interface Transaction {
   type: "income" | "expense";

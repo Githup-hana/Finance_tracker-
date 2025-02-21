@@ -1,4 +1,5 @@
-import { getTransactions, Transaction } from "../main";
+import { getTransactions, Transaction } from "./getTransactions";
+
 
 
 function savingTransaction() {
