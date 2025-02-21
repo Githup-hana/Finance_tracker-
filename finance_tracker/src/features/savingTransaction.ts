@@ -14,7 +14,9 @@ function savingTransaction() {
     description: descInput.value,
     amount: parseFloat(amountInput.value),
     type: typeInput.value as "income" | "expense",
+    date:new Date(Date.now()).toLocaleDateString()
   };
+  
   const existingTransactions = getTransactions();
   existingTransactions.push(transactions);
   const newTransaction = JSON.stringify(existingTransactions);
