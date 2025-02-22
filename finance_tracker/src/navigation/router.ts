@@ -46,7 +46,7 @@ async function updateAppContent(appEl: HTMLDivElement) {
       const investButton = document.querySelector(
         "#crypto-invest-but"
       ) as HTMLButtonElement;
-      investButton.addEventListener("click", () => { console.log('handleInvestment:', handleInvestment); });
+      investButton.addEventListener("click", handleInvestment);
       const resultButton = document.querySelector(
         "#show-invest"
       ) as HTMLButtonElement;
