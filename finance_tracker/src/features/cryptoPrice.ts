@@ -22,6 +22,12 @@ export async function getCryptoPrice() {
     return;
   }
 
+  // const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?symbol=${crypto}&convert=${currency}`;
+
+  // const headers = {
+  //   'X-CMC_PRO_API_KEY': '900ade35-f2ad-4480-9441-840af2efea1f', 
+  //   'Content-Type': 'application/json',
+  // };
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${crypto}`;
   
   if (cryptoPriceContainer) cryptoPriceContainer.innerHTML = "";
