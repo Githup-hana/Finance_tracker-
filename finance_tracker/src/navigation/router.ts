@@ -3,6 +3,8 @@ import { displayBalance } from "../features/dispalybalance";
 import { savingTransaction } from "../features/savingTransaction";
 import { displayData } from "../features/displaytransactions";
 import { getCryptoPrice } from "../features/cryptoPrice";
+import { handleInvestment } from "../features/handleInvestment";
+import { checkInvestment } from "../features/checkInvestment";
 
 async function updateAppContent(appEl: HTMLDivElement) {
   const currentPath = window.location.pathname;
@@ -41,6 +43,15 @@ async function updateAppContent(appEl: HTMLDivElement) {
         "#crypto-but"
       ) as HTMLButtonElement;
       cryptoButton.addEventListener("click", getCryptoPrice);
+      const investButton = document.querySelector(
+        "#crypto-invest-but"
+      ) as HTMLButtonElement;
+      investButton.addEventListener("click", () => { console.log('handleInvestment:', handleInvestment); });
+      const resultButton = document.querySelector(
+        "#show-invest"
+      ) as HTMLButtonElement;
+      resultButton.addEventListener("click", checkInvestment);
+   
     }
   } catch (error) {
     console.error("Fehler beim Laden der Seite:", error);
