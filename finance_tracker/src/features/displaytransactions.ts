@@ -13,17 +13,23 @@ function displayData(): void {
       .map((transaction) => {
         const date = new Date(transaction.id).toLocaleDateString('de-DE'); 
         return `
-        <li class="flex justify-between items-center p-4 mb-2 border-b border-gray-300">
-          <div class="flex items-center space-x-3">
-            <span class="text-lg">${getTransactionIcon(transaction.description)}</span>
-            <div>
-              <h3 class="text-gray-800 font-medium">${transaction.description}</h3>
-              <p class="text-sm text-gray-500">${transaction.type === "income" ? "Einnahme" : "Ausgabe"}</p>
-            </div>
-          </div>
-          <p class="text-lg font-semibold ${transaction.type === "income" ? "text-green-500" : "text-red-500"}">${transaction.amount} €</p>
-          <p class="text-sm text-gray-500">${date}</p>
-        </li>`;
+<li class="flex justify-between items-center p-6 mb-4 border-b border-gray-300">
+  <div class="flex items-center space-x-4">
+    <span class="text-lg">${getTransactionIcon(transaction.description)}</span>
+    <div>
+      <h3 class="text-gray-800 font-medium">${transaction.description}</h3>
+      <p class="text-sm text-gray-500">${transaction.type === "income" ? "Einnahme" : "Ausgabe"}</p>
+    </div>
+  </div>
+
+  <!-- Betrag und Datum mit mehr Padding -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+    <p class="text-lg font-semibold ${transaction.type === "income" ? "text-green-500" : "text-red-500"}">${transaction.amount} €</p>
+    <p class="text-sm text-gray-500 mt-2 sm:mt-0">${date}</p>
+  </div>
+</li>
+
+`;
       })
       .join("");
 
