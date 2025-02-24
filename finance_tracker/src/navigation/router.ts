@@ -34,9 +34,7 @@ async function updateAppContent(appEl: HTMLDivElement) {
       });
     }
     if (currentPath === "/Transactions") {
-     
       displayData();
-      
     }
     if (currentPath === "/cryptoPrice") {
       const cryptoButton = document.querySelector(
@@ -47,11 +45,14 @@ async function updateAppContent(appEl: HTMLDivElement) {
         "#crypto-invest-but"
       ) as HTMLButtonElement;
       investButton.addEventListener("click", handleInvestment);
-      const resultButton = document.querySelector(
-        "#show-invest"
-      ) as HTMLButtonElement;
-      resultButton.addEventListener("click", checkInvestment);
-   
+      // const resultButton = document.querySelector(
+      //   "#show-invest"
+      // ) as HTMLButtonElement;
+      // resultButton.addEventListener("click", checkInvestment);
+    }
+    if (currentPath === "/investments") {
+
+      checkInvestment();
     }
   } catch (error) {
     console.error("Fehler beim Laden der Seite:", error);
@@ -79,7 +80,5 @@ function initRouter(appEl: HTMLDivElement) {
 
   window.addEventListener("load", () => updateAppContent(appEl));
 }
-
-
 
 export { updateAppContent, initRouter };
